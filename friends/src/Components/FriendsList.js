@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { axiosWithAuth } from '../Utility/axiosWithAuth'
 
+import Friend from './Friend'
+
 const FriendsList = () => {
     const [friendsList, setFriendsList] = useState([])
+
     useEffect(()=>{
         axiosWithAuth().get('/friends')
             .then(res => {
-                console.log('FriendsList: ', res)
+                setFriendsList(res.data)
             }).catch(err => {
                 console.log("Error: ", err)
             })
     },[])
 
     return(
-        <div>Hello from FriendsList</div>
+        <div>
+            {friendsList.map(friend => <Friend key={friend.id} data={friend}/>)}
+        </div>
     )
 }
 
