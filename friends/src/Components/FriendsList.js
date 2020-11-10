@@ -19,7 +19,7 @@ const FriendsList = () => {
     return(
         <div>
             <Link to='/addfriend'>Add Friend</Link>
-            {friendsList.reverse().map(friend => <Friend key={friend.id} data={friend}/>)}
+            {friendsList.reverse().map(friend => <Friend key={friend.id} data={friend} setFriendsList={setFriendsList}/>)}
         </div>
     )
 }
