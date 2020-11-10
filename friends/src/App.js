@@ -23,7 +23,9 @@ function App() {
           <Route exact path='/'>
             <h1>Home</h1>
           </Route>
-          <Route path='/login' component={Login}/>
+          <Route path="/login" render={(props)=>{
+            return <Login {...props}/>
+          }} />
           <PrivateRoute exact path='/friends' component={FriendsList}/>
         </Switch>
       </div>

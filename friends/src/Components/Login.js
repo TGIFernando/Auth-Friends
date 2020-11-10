@@ -1,6 +1,5 @@
 import React, { Component }  from 'react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -28,7 +27,7 @@ class Login extends Component {
     .then(req => {
         console.log(req.data)
         localStorage.setItem("token", req.data.payload);
-        // history.push('/friends')
+        this.props.history.push('/friends')
     })
     .catch( err => {
         console.log(err)

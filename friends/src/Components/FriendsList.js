@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { axiosWithAuth } from '../Utility/axiosWithAuth'
 
-class FriendsList extends Component {
-    render(){
-        return(
-            <h1> Hello From FriendsList</h1>
-        )
-    }
+const FriendsList = () => {
+    const [friendsList, setFriendsList] = useState([])
+    useEffect(()=>{
+        axiosWithAuth().get('/friends')
+            .then(res => {
+                console.log('FriendsList: ', res)
+            }).catch(err => {
+                console.log("Error: ", err)
+            })
+    },[])
+
+    return(
+        <div>Hello from FriendsList</div>
+    )
 }
 
 export default FriendsList
