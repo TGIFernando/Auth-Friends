@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { axiosWithAuth } from '../Utility/axiosWithAuth'
+import { Link } from 'react-router-dom'
 
 import Friend from './Friend'
 
@@ -17,7 +18,8 @@ const FriendsList = () => {
 
     return(
         <div>
-            {friendsList.map(friend => <Friend key={friend.id} data={friend}/>)}
+            <Link to='/addfriend'>Add Friend</Link>
+            {friendsList.reverse().map(friend => <Friend key={friend.id} data={friend}/>)}
         </div>
     )
 }

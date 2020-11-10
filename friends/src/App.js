@@ -5,6 +5,7 @@ import './App.css'
 
 import Login from './Components/Login'
 import FriendsList from './Components/FriendsList'
+import AddFriend from './Components/AddFriend'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             return <Login {...props}/>
           }} />
           <PrivateRoute exact path='/friends' component={FriendsList}/>
+          <PrivateRoute exact path ='/addfriend' component={AddFriend}/>
         </Switch>
       </div>
     </Router>
