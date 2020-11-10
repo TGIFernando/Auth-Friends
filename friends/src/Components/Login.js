@@ -1,5 +1,6 @@
 import React, { Component }  from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -22,10 +23,12 @@ class Login extends Component {
 
     onSubmit = e => {
     e.preventDefault();
+    // const history = useHistory()
     axios.post('http://localhost:5000/api/login', this.state.credentials)
     .then(req => {
         console.log(req.data)
         localStorage.setItem("token", req.data.payload);
+        // history.push('/friends')
     })
     .catch( err => {
         console.log(err)
